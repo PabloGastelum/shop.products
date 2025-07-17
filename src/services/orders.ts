@@ -2,7 +2,7 @@ import type { Order } from "../models/orders";
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
-export const getOrders = async () => {
+export const fetchOrders = async () => {
   try {
     const response = await fetch(`${API_URL}/api/orders`);
     if (!response.ok) {
@@ -11,8 +11,6 @@ export const getOrders = async () => {
 
     const orders = await response.json();
     return orders as Order[];
-
-    return [];
   } catch (error) {
     console.error("Error fetching orders:", error);
     throw error;
@@ -32,12 +30,6 @@ export const postOrder = async (order: Order) => {
     }
 
     return await response.json();
-
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve({ success: true, order });
-      }, 1000);
-    });
   } catch (error) {
     console.error("Error posting order:", error);
     throw error;

@@ -6,10 +6,12 @@ import {
   OrdersModalTemplate,
 } from "./components/templates";
 import { useCartModal } from "./context/CartModalContext";
+import { useOrdersModal } from "./context/OrdersModalContext";
 
 function App() {
   const { themeClass } = useTheme();
   const { showCartModal } = useCartModal();
+  const { showOrdersModal } = useOrdersModal();
 
   return (
     <div className={`min-vh-100 w-100 ${themeClass}`}>
@@ -17,7 +19,7 @@ function App() {
         <HeaderTemplate />
         <ProductsTemplate />
         <CartModalTemplate show={showCartModal} />
-        <OrdersModalTemplate show={false} />
+        <OrdersModalTemplate show={showOrdersModal} />
       </div>
     </div>
   );

@@ -6,3 +6,4 @@ export { default as CartModalFooter } from "./CartModalFooter";
 export { default as CartModalForm } from "./CartModalForm";
 export { default as ModalHeader } from "./ModalHeader";
 export { default as Modal } from "./Modal";
+export { default as OrdersButton } from "./OrdersButton";
