@@ -1,69 +1,126 @@
-# React + TypeScript + Vite
+# Shop Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es una aplicación web para un flujo de compra completo: catálogo, carrito, checkout y confirmación. Está desarrollado con React, Vite y Bootstrap, siguiendo una arquitectura basada en componentes y hooks personalizados.
 
-Currently, two official plugins are available:
+## Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Catálogo de productos con animaciones y diseño responsivo
+- Carrito de compras con conteo y gestión de productos
+- Checkout con formulario validado para datos del cliente
+- Confirmación de orden y manejo de estado global
+- Modal para ver y gestionar el carrito
+- Hooks personalizados para consumo de API y manejo de órdenes
+- Tema oscuro/ligero automático
+- Despliegue en Vercel
 
-## Expanding the ESLint configuration
+## Tecnologías utilizadas
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React + Vite
+- Bootstrap 5
+- TypeScript
+- Vercel para despliegue
+- Inteligencia Artificial (GitHub Copilot) para generación de servicios, componentes y hooks
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Estructura del proyecto
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+eslint.config.js
+index.html
+package.json
+README.md
+tsconfig.app.json
+tsconfig.json
+tsconfig.node.json
+vite.config.ts
+public/
+  vite.svg
+src/
+  App.tsx
+  main.tsx
+  vite-env.d.ts
+  components/
+    molecules/
+      CartProductListItem.tsx
+      OrdersButton.tsx
+      ModalButton.tsx
+      ProductCard.tsx
+      index.ts
+    organims/
+      CartButton.tsx
+      CartModalFooter.tsx
+      CartModalForm.tsx
+      CartProductsList.tsx
+      ErrorAlert.tsx
+      Loading.tsx
+      Modal.tsx
+      ModalHeader.tsx
+      ProductList.tsx
+      index.ts
+    templates/
+      CartModalTemplate.tsx
+      HeaderTemplate.tsx
+      OrdersModalTemplate.tsx
+      ProductsTemplate.tsx
+      index.ts
+  context/
+    CartContext.tsx
+    CartModalContext.tsx
+    OrdersModalContext.tsx
+  hooks/
+    useAddOrder.ts
+    useOrders.ts
+    useProducts.ts
+    useTheme.ts
+    index.ts
+  models/
+    clients.ts
+    orders.ts
+    products.ts
+  services/
+    orders.ts
+    products.ts
+    index.ts
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Jerarquía de componentes (Atomic Design)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **Atoms**: Elementos básicos y reutilizables
+  - Botones, Inputs, Badges, Iconos, etc.
+- **Molecules**: Combinación de átomos
+  - ProductCard, CartButton, CartProductListItem, OrdersButton, ModalButton, etc.
+- **Organisms**: Secciones completas con lógica
+  - CartProductsList, CartModalFooter, CartModalForm, ModalHeader, ProductList, ErrorAlert, Loading, Modal, etc.
+- **Templates**: Estructura de páginas o modales
+  - ProductsTemplate, CartModalTemplate, HeaderTemplate, OrdersModalTemplate, etc.
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Instalación
+
+```bash
+npm install
+npm run dev
 ```
+
+## Variables de entorno
+
+Crea un archivo `.env` y agrega:
+
+```
+VITE_API_URL=https://your.service.api.com
+```
+
+## Deploy
+
+El proyecto está listo para desplegarse en Vercel. Solo conecta tu repositorio y configura la variable de entorno `VITE_API_URL` en el dashboard de Vercel.
+
+## Repositorio
+
+[https://github.com/PabloGastelum/shop.frontend](https://github.com/PabloGastelum/shop.products)
+
+
+## URL de la demo
+
+[https://shop-products-roan.vercel.app/](https://shop-products-roan.vercel.app/)
+
+---
+
+Este proyecto fue desarrollado con ayuda de inteligencia artificial para acelerar la creación de servicios, componentes y hooks.
